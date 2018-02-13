@@ -3,23 +3,10 @@ import {connect} from 'react-redux';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
 
 class Home extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.dispatchExampleAction = this.dispatchExampleAction.bind(this);
     }
-
-    dispatchExampleAction(){
-        this.props.sendExampleAction();
-    }
-
-    componentWillMount(){
-        this.props.resetStore();
-    }
-
-    componentDidMount() {
-    }
-
 
     render(){
 
@@ -37,14 +24,11 @@ class Home extends Component {
 
 function mapStateToProps(state){
     return {
-        example: state.example
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        sendExampleAction: () => dispatch(sendExampleAction()),
-        resetStore: () => dispatch(resetStore())
     }
 }
 
