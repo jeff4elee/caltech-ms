@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import styled from 'styled-components';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
+import UploadButton from './upload-button'
+
+
 
 class Home extends Component {
     constructor(props) {
@@ -10,13 +14,12 @@ class Home extends Component {
 
     render(){
 
-        const example = this.props.example;
-        const exampleList = example.allIds.map(id => <div key={id}> Dispatched: {example.byId[id]} </div>);
+        //const example = this.props.example;
+        //const exampleList = example.allIds.map(id => <div key={id}> Dispatched: {example.byId[id]} </div>);
 
         return (
             <div>
-                <button onClick={() => this.dispatchExampleAction()}>CLICK</button>
-                {exampleList}
+              <UploadButton></UploadButton>
             </div>
         )
     }
