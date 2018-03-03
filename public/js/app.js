@@ -59021,7 +59021,6 @@ var Master = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__navbar__["a" /* default */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_4_react_router_dom__["d" /* Switch */],
                     null,
@@ -59113,7 +59112,7 @@ var Navbar = function (_React$Component) {
     return Navbar;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Navbar);
+/* unused harmony default export */ var _unused_webpack_default_export = (Navbar);
 
 /***/ }),
 /* 153 */
@@ -59128,17 +59127,23 @@ var Navbar = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__upload_button__ = __webpack_require__(158);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _templateObject = _taggedTemplateLiteral(['\n  text-align: center;\n  margin: 50px;\n  font-size: 200%;\n'], ['\n  text-align: center;\n  margin: 50px;\n  font-size: 200%;\n']);
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
 
+
+
+var TitleStyle = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].h1(_templateObject);
 
 var Home = function (_Component) {
     _inherits(Home, _Component);
@@ -59153,12 +59158,14 @@ var Home = function (_Component) {
         key: 'render',
         value: function render() {
 
-            //const example = this.props.example;
-            //const exampleList = example.allIds.map(id => <div key={id}> Dispatched: {example.byId[id]} </div>);
-
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    TitleStyle,
+                    null,
+                    'Welcome to our aumomatic highlight reel maker thingy!'
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__upload_button__["a" /* default */], null)
             );
         }
@@ -60939,7 +60946,8 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__history__ = __webpack_require__(45);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  height: 80px;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n'], ['\n  height: 80px;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  text-align: center;\n  margin: 20px;\n'], ['\n  text-align: center;\n  margin: 20px;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  height: 80px;\n  width: 160px;\n\n  font-size: 120%;\n\n  background-color: white;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n'], ['\n  height: 80px;\n  width: 160px;\n\n  font-size: 120%;\n\n  background-color: white;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -60956,6 +60964,8 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 var CompStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject);
+
+var ButtonStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].button(_templateObject2);
 
 var UploadButton = function (_React$Component) {
     _inherits(UploadButton, _React$Component);
@@ -60990,9 +61000,9 @@ var UploadButton = function (_React$Component) {
                 CompStyle,
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'button',
+                    ButtonStyle,
                     { onClick: this.filePrompt },
-                    ' Upload Video '
+                    ' UPLOAD VIDEO '
                 )
             );
         }
