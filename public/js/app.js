@@ -60939,7 +60939,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__history__ = __webpack_require__(45);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  height: 80px;\n  background-color: black;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n'], ['\n  height: 80px;\n  background-color: black;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  height: 80px;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n'], ['\n  height: 80px;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
