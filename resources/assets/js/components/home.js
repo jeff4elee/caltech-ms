@@ -5,6 +5,11 @@ import {sendExampleAction, resetStore} from '../actions/exampleActions';
 import UploadButton from './upload-button'
 
 
+const TitleStyle = styled.h1`
+  text-align: center;
+  margin: 50px;
+  font-size: 200%;
+`
 
 class Home extends Component {
     constructor(props) {
@@ -14,11 +19,11 @@ class Home extends Component {
 
     render(){
 
-        //const example = this.props.example;
-        //const exampleList = example.allIds.map(id => <div key={id}> Dispatched: {example.byId[id]} </div>);
-
         return (
             <div>
+
+              <TitleStyle>Welcome to our aumomatic highlight reel maker thingy!</TitleStyle>
+
               <UploadButton></UploadButton>
             </div>
         )
