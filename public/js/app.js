@@ -62857,9 +62857,7 @@ var UploadButton = function (_React$Component) {
             formData.append(key, imageFile);
 
             var self = this;
-            // var url = 'http://52.53.158.244/video/upload'
-
-            var url = 'http://127.0.0.1:5000/video/upload';
+            var url = 'http://52.53.158.244/video/upload';
 
             console.log("Sending Request...");
             __WEBPACK_IMPORTED_MODULE_4_axios___default()({
