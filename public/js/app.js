@@ -63147,7 +63147,8 @@ var ToggleOptions = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__history__ = __webpack_require__(10);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n\n    position: relative;\n    padding-top: 56.25%\n'], ['\n\n    position: relative;\n    padding-top: 56.25%\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    position: relative;\n    padding-top: 56.25%\n'], ['\n    position: relative;\n    padding-top: 56.25%\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  font-size: 25px;\n'], ['\n  font-size: 25px;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -63166,6 +63167,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 var CompStyle = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].div(_templateObject);
+var TitleStyle = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].h1(_templateObject2);
 
 var VideoPlayer = function (_React$Component) {
   _inherits(VideoPlayer, _React$Component);
@@ -63182,6 +63184,11 @@ var VideoPlayer = function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         CompStyle,
         null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          TitleStyle,
+          null,
+          'Your new condensed video'
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_player___default.a, {
           url: this.props.url,
           className: 'react-player',
