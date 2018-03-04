@@ -97,7 +97,6 @@ class ToggleOptions extends React.Component {
 
                 <ItemStyle style={{backgroundColor: bgColor1}}onClick={this.but1}>Entertainment</ItemStyle>
                 <ItemStyle style={{backgroundColor: bgColor2}}onClick={this.but2}>Classroom</ItemStyle>
-                <ItemStyle style={{backgroundColor: bgColor3}}onClick={this.but3}>Speech</ItemStyle>
 
               </ListStyle>
 

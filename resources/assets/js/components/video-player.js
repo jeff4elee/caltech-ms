@@ -7,12 +7,14 @@ import { withRouter } from 'react-router-dom';
 import history from '../history';
 
 const CompStyle = styled.div`
+    display: flex;
+    flex-direction: column;
     text-align: center;
     position: relative;
-    padding-top: 56.25%
 `
 const TitleStyle = styled.h1`
   font-size: 25px;
+  padding-bottom: 10px;
 `
 
 class VideoPlayer extends React.Component {

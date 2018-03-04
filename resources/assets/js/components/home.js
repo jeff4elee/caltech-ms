@@ -26,6 +26,14 @@ class Home extends Component {
         const url = this.props.url;
         console.log(url);
 
+        const timestamps = this.props.timestamps;
+
+        let annotations = [];
+
+        if(timestamps !== undefined){
+          annotations = timestamps.map(ts => <TimeStamp timestamp={ts['begin']} phrase={ts['topic']} link={ts['link']} id={ts['begin']}/>);
+        }
+
         return (
             <div>
 
@@ -36,10 +44,10 @@ class Home extends Component {
               <UploadButton></UploadButton>
 
               {url !== undefined && <VideoPlayer url={this.props.url} ></VideoPlayer>}
+              {url !== undefined && <TitleStyle>Key Points</TitleStyle>}
 
+              {annotations}
 
-              {url !== undefined && <TitleStyle>Important points</TitleStyle>}
-              <TimeStamp timestamp="12:15" link="google.com"></TimeStamp>
             </div>
         )
     }
@@ -47,7 +55,8 @@ class Home extends Component {
 
 function mapStateToProps(state){
     return {
-        url: state.example.url
+        url: state.example.url,
+        timestamps: state.example.timestamps
     }
 }
 
