@@ -60946,7 +60946,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__history__ = __webpack_require__(45);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  overflow: hidden;\n'], ['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  overflow: hidden;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n'], ['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -60963,47 +60963,6 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 var CompStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject);
-
-//
-// const ButtonStyle = styled.button`
-//   height: 80px;
-//   width: 160px;
-//   font-size: 120%;
-//   background-color: white;
-//   border: solid;
-//   border-color: gray;
-//   border-bottom-width: 1px;
-// `
-// const InputStyle = styled.input`
-// display: block;
-// position: absolute;
-// top: 0;
-// right: 0;
-// opacity: 0;
-// font-size: 100px;
-// filter: alpha(opacity=0);
-// cursor: pointer;
-// `
-
-
-// <style>
-// .inputFile {
-// width: .1px;
-// height: .1px;
-// opacity: 0;
-// overflow: hidden;
-// position: absolute;
-// z-index: -1;
-// }
-// </style>
-
-// styled=
-//     {{width: ".1px",
-//    height: ".1px",
-//    opacity: 0,
-//    overflow: "hidden",
-//    position: "absolute",
-//    z-index: -1 }}
 
 var UploadButton = function (_React$Component) {
   _inherits(UploadButton, _React$Component);
@@ -61037,10 +60996,9 @@ var UploadButton = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'form',
           { onSubmit: this.handleSubmit },
-          '// ',
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            ButtonStyle,
-            null,
+            'div',
+            { className: 'inputDiv' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file', id: 'file', className: 'inputfile', ref: function ref(input) {
                 _this2.fileInput = input;
               } }),
@@ -61048,11 +61006,8 @@ var UploadButton = function (_React$Component) {
               'label',
               { htmlFor: 'file' },
               'UPLOAD VIDEO'
-            ),
-            '// '
+            )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-          ' ',
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'button',
@@ -61066,113 +61021,6 @@ var UploadButton = function (_React$Component) {
 
   return UploadButton;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-// import React from 'react';
-// import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
-// import { withRouter } from 'react-router-dom';
-// import history from '../history';
-//
-// const CompStyle = styled.div`
-//   position: relative;
-//   text-align: center;
-//   margin: 20px;
-// `
-//
-// const ButtonStyle = styled.button`
-//   height: 80px;
-//   width: 160px;
-//
-//   font-size: 120%;
-//
-//   background-color: white;
-//   border: solid;
-//   border-color: gray;
-//   border-bottom-width: 1px;
-// `
-//
-// const InputStyle = styled.input`
-//   display: block;
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   opacity: 0;
-//   font-size: 100px;
-//   filter: alpha(opacity=0);
-//   cursor: pointer;
-// `
-//
-// export default class UploadButton extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         //
-//         // this.toggle = this.toggle.bind(this);
-//         // this.filePrompt = this.filePrompt.bind(this);
-//         // this.fileSave = this.fileSave.bind(this);
-//
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//         this.onChange = this.onChange.bind(this)
-//         this.state = {
-//             isOpen: false,
-//             file:null
-//         };
-//     }
-//
-//     onChange(event) {
-//         console.log(event);
-//       this.setState({file:event.target.files[0]});
-//       console.log(this.state);
-//     }
-//     handleSubmit(event) {
-//         console.log(event.target);
-//         event.preventDefault();
-//         const files = event.target.files;
-//         // console.log(this.fileInput.files[0].name);
-//         console.log(files);
-//         console.log(`Selected file - ${this.fileInput}`);
-//     }
-//
-//         //
-//     // toggle() {
-//     //     this.setState({
-//     //         isOpen: !this.state.isOpen
-//     //     });
-//     // }
-//     //
-//     // filePrompt() {
-//     //   //var x = document.getElementById("myFile");
-//     // }
-//     //
-//     // fileSave() {
-//     //   var x = document.getElementById("myFile");
-//     //   window.alert(x.size/1000);
-//     // }
-//
-//
-//     render() {
-//         return (
-//
-//         <CompStyle>
-//             <form onSubmit={this.handleSubmit}>
-//               <ButtonStyle>
-//                   UPLOAD VIDEO
-//
-//                 {/* highlight-range{1-6} */}
-//                 <InputStyle
-//                   type="file"
-//                    onChange={e => this.onChange(e)} />
-//               </ButtonStyle>
-//               <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
-//               <button type="submit">Submit</button>
-//             </form>
-//         </CompStyle>
-//
-//
-//
-//         );
-//     }
-// }
-
 
 /* harmony default export */ __webpack_exports__["a"] = (UploadButton);
 

@@ -16,15 +16,21 @@
 	position: absolute;
 	z-index: -1;
 
-    //
-    // display: block;
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // opacity: 0;
-    // font-size: 100px;
-    // filter: alpha(opacity=0);
-    // cursor: pointer;
+}
+
+.inputDiv {
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 80px;
+    width: 160px;
+    font-size: 120%;
+    background-color: white;
+    border: solid;
+    border-color: gray;
+    border-bottom-width: 1px;
 
 }
 
@@ -34,22 +40,11 @@
     // color: white;
     // background-color: black;
     // display: inline-block;
+    cursor: pointer; /* "hand" cursor */
 
-
-    height: 80px;
-    width: 160px;
-    font-size: 120%;
-    background-color: white;
-    border: solid;
-    border-color: gray;
-    border-bottom-width: 1px;
 }
 
-.inputfile:focus + label,
-.inputfile + label:hover {
-    background-color: red;
-}
-
-.inputfile + label {
-	cursor: pointer; /* "hand" cursor */
-}
+// .inputfile:focus + label,
+// .inputfile + label:hover {
+//     background-color: blue;
+// }
