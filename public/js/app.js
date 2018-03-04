@@ -60950,6 +60950,8 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__history__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n'], ['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n']);
@@ -60968,64 +60970,91 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 
+
 var CompStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject);
 
 var UploadButton = function (_React$Component) {
-  _inherits(UploadButton, _React$Component);
+    _inherits(UploadButton, _React$Component);
 
-  function UploadButton(props) {
-    _classCallCheck(this, UploadButton);
+    function UploadButton(props) {
+        _classCallCheck(this, UploadButton);
 
-    var _this = _possibleConstructorReturn(this, (UploadButton.__proto__ || Object.getPrototypeOf(UploadButton)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (UploadButton.__proto__ || Object.getPrototypeOf(UploadButton)).call(this, props));
 
-    _this.handleSubmit = _this.handleSubmit.bind(_this);
-    return _this;
-  }
-
-  // highlight-range{4}
-
-
-  _createClass(UploadButton, [{
-    key: 'handleSubmit',
-    value: function handleSubmit(event) {
-      event.preventDefault();
-      alert('Selected file - ' + this.fileInput.files[0].name);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        return _this;
     }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        CompStyle,
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'form',
-          { onSubmit: this.handleSubmit },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'inputDiv' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file', id: 'file', className: 'inputfile', ref: function ref(input) {
-                _this2.fileInput = input;
-              } }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'label',
-              { htmlFor: 'file' },
-              'UPLOAD VIDEO'
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'button',
-            { type: 'submit' },
-            'Submit'
-          )
-        )
-      );
-    }
-  }]);
+    // highlight-range{4}
 
-  return UploadButton;
+
+    _createClass(UploadButton, [{
+        key: 'handleSubmit',
+        value: function handleSubmit(event) {
+            event.preventDefault();
+            alert('Selected file - ' + this.fileInput.files[0].name);
+
+            var config = { headers: { "Content-Type": "multipart/form-data" } };
+            var formData = new FormData();
+            var imageFile = this.fileInput.files[0];
+            formData.append("file", imageFile);
+
+            __WEBPACK_IMPORTED_MODULE_4_axios___default()({
+                method: 'post',
+                url: 'http://18.144.27.216/video/upload',
+                data: formData,
+                config: config
+            }).then(function (res) {
+                console.log(res);
+            }).catch(function (err) {
+                console.log(err);
+            });
+
+            // axios.interceptors.request.use(request => {
+            //   console.log('Starting Request', request)
+            //   return request
+            // })
+            //
+            // axios.interceptors.response.use(response => {
+            //   console.log('Response:', response)
+            //   return response
+            // })
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                CompStyle,
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'form',
+                    { onSubmit: this.handleSubmit },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'inputDiv' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file', id: 'file', className: 'inputfile', ref: function ref(input) {
+                                _this2.fileInput = input;
+                            } }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'label',
+                            { htmlFor: 'file' },
+                            'UPLOAD VIDEO'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'button',
+                        { type: 'submit' },
+                        'Submit'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return UploadButton;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (UploadButton);
