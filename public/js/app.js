@@ -63035,100 +63035,100 @@ var ListStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default *
 var ItemStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].li(_templateObject4);
 
 var ToggleOptions = function (_React$Component) {
-    _inherits(ToggleOptions, _React$Component);
+  _inherits(ToggleOptions, _React$Component);
 
-    function ToggleOptions(props) {
-        _classCallCheck(this, ToggleOptions);
+  function ToggleOptions(props) {
+    _classCallCheck(this, ToggleOptions);
 
-        var _this = _possibleConstructorReturn(this, (ToggleOptions.__proto__ || Object.getPrototypeOf(ToggleOptions)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ToggleOptions.__proto__ || Object.getPrototypeOf(ToggleOptions)).call(this, props));
 
-        _this.state = {
-            color1: true
-        };
-        _this.state = {
-            color2: true
-        };
-        _this.state = {
-            color3: true
-        };
+    _this.state = {
+      color1: true
+    };
+    _this.state = {
+      color2: true
+    };
+    _this.state = {
+      color3: true
+    };
 
-        _this.toggle = _this.toggle.bind(_this);
-        _this.but1 = _this.but1.bind(_this);
-        _this.but2 = _this.but2.bind(_this);
-        _this.but3 = _this.but3.bind(_this);
-        _this.state = {
-            isOpen: false
-        };
-        return _this;
+    _this.toggle = _this.toggle.bind(_this);
+    _this.but1 = _this.but1.bind(_this);
+    _this.but2 = _this.but2.bind(_this);
+    _this.but3 = _this.but3.bind(_this);
+    _this.state = {
+      isOpen: false
+    };
+    return _this;
+  }
+
+  _createClass(ToggleOptions, [{
+    key: 'toggle',
+    value: function toggle() {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
     }
+  }, {
+    key: 'but1',
+    value: function but1() {
+      this.setState({ color1: true });
+      this.setState({ color2: false });
+      this.setState({ color3: false });
+    }
+  }, {
+    key: 'but2',
+    value: function but2() {
+      this.setState({ color1: false });
+      this.setState({ color2: true });
+      this.setState({ color3: false });
+    }
+  }, {
+    key: 'but3',
+    value: function but3() {
+      this.setState({ color1: false });
+      this.setState({ color2: false });
+      this.setState({ color3: true });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var bgColor1 = this.state.color1 ? "#DCDCDC" : "white";
+      var bgColor2 = this.state.color2 ? "#DCDCDC" : "white";
+      var bgColor3 = this.state.color3 ? "#DCDCDC" : "white";
 
-    _createClass(ToggleOptions, [{
-        key: 'toggle',
-        value: function toggle() {
-            this.setState({
-                isOpen: !this.state.isOpen
-            });
-        }
-    }, {
-        key: 'but1',
-        value: function but1() {
-            this.setState({ color1: true });
-            this.setState({ color2: false });
-            this.setState({ color3: false });
-        }
-    }, {
-        key: 'but2',
-        value: function but2() {
-            this.setState({ color1: false });
-            this.setState({ color2: true });
-            this.setState({ color3: false });
-        }
-    }, {
-        key: 'but3',
-        value: function but3() {
-            this.setState({ color1: false });
-            this.setState({ color2: false });
-            this.setState({ color3: true });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var bgColor1 = this.state.color1 ? "#DCDCDC" : "white";
-            var bgColor2 = this.state.color2 ? "#DCDCDC" : "white";
-            var bgColor3 = this.state.color3 ? "#DCDCDC" : "white";
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        CompStyle,
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          TitleStyle,
+          null,
+          'Type of video/audio'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          ListStyle,
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            ItemStyle,
+            { style: { backgroundColor: bgColor1 }, onClick: this.but1 },
+            'Entertainment'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            ItemStyle,
+            { style: { backgroundColor: bgColor2 }, onClick: this.but2 },
+            'Classroom'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            ItemStyle,
+            { style: { backgroundColor: bgColor3 }, onClick: this.but3 },
+            'Speech'
+          )
+        )
+      );
+    }
+  }]);
 
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                CompStyle,
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    TitleStyle,
-                    null,
-                    'Type of video/audio'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    ListStyle,
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        ItemStyle,
-                        { style: { backgroundColor: bgColor1 }, onClick: this.but1 },
-                        'Entertainment'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        ItemStyle,
-                        { style: { backgroundColor: bgColor2 }, onClick: this.but2 },
-                        'Classroom'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        ItemStyle,
-                        { style: { backgroundColor: bgColor3 }, onClick: this.but3 },
-                        'Speech'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return ToggleOptions;
+  return ToggleOptions;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (ToggleOptions);
