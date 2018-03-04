@@ -38,6 +38,7 @@ class Home extends Component {
               {url !== undefined && <VideoPlayer url={this.props.url} ></VideoPlayer>}
 
 
+              {url !== undefined && <TitleStyle>Important points</TitleStyle>}
               <TimeStamp timestamp="12:15" link="google.com"></TimeStamp>
             </div>
         )

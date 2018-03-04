@@ -27,6 +27,7 @@ const ItemStyle = styled.li`
   padding: 10px;
   border: solid;
   border-color: gray;
+  cursor: pointer; /* "hand" cursor */
 `
 
 export default class ToggleOptions extends React.Component {

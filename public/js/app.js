@@ -60989,6 +60989,11 @@ var Home = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__toggle_options__["a" /* default */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__upload_button__["a" /* default */], null),
                 url !== undefined && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__video_player__["a" /* default */], { url: this.props.url }),
+                url !== undefined && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    TitleStyle,
+                    null,
+                    'Important points'
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__timestamp__["a" /* default */], { timestamp: '12:15', link: 'google.com' })
             );
         }
@@ -62867,7 +62872,7 @@ var UploadButton = function (_React$Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'label',
                             { htmlFor: 'file' },
-                            'UPLOAD VIDEO'
+                            'Upload File'
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
@@ -63016,7 +63021,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _templateObject = _taggedTemplateLiteral(['\n  margin-bottom: 100px;\n'], ['\n  margin-bottom: 100px;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n  text-align: center;\n  font-size: 25px;\n  margin-bottom: 25px;\n'], ['\n  text-align: center;\n  font-size: 25px;\n  margin-bottom: 25px;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n'], ['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n  text-align: center;\n  width: 150px;\n  display: inline-block;\n  font-size: 110%;\n  padding: 10px;\n  border: solid;\n  border-color: gray;\n'], ['\n  text-align: center;\n  width: 150px;\n  display: inline-block;\n  font-size: 110%;\n  padding: 10px;\n  border: solid;\n  border-color: gray;\n']);
+    _templateObject4 = _taggedTemplateLiteral(['\n  text-align: center;\n  width: 150px;\n  display: inline-block;\n  font-size: 110%;\n  padding: 10px;\n  border: solid;\n  border-color: gray;\n  cursor: pointer; /* "hand" cursor */\n'], ['\n  text-align: center;\n  width: 150px;\n  display: inline-block;\n  font-size: 110%;\n  padding: 10px;\n  border: solid;\n  border-color: gray;\n  cursor: pointer; /* "hand" cursor */\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 

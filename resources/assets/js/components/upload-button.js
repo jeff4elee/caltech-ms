@@ -92,7 +92,7 @@ class UploadButton extends React.Component {
                 <input type="file" id="file" className="inputfile" ref={ input => {
                   this.fileInput = input;
                 }} />
-                <label htmlFor="file">UPLOAD VIDEO</label>
+                <label htmlFor="file">Upload File</label>
             </div>
 
               <br/>
