@@ -31,7 +31,7 @@ class Master extends Component {
 
         return (
             <div>
-                <Navbar/>
+                {/*<Navbar/>*/}
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     {/* both /roster and /roster/:number begin with /roster */}
