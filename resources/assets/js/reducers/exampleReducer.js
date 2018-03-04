@@ -2,6 +2,7 @@ export default function reducer(state={
     byId: {},
     allIds: [],
     url: null,
+    categoryKey: null,
     fetching: false,
     fetched: false,
     error: null
@@ -39,6 +40,11 @@ export default function reducer(state={
         case "CHANGE_URL": {
             return {...state,
                 url: action.payload
+            }
+        }
+        case "CHANGE_KEY": {
+            return {...state,
+                categoryKey: action.payload
             }
         }
         case "STORE::RESET": {
