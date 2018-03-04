@@ -16,7 +16,8 @@ const ListStyle = styled.ul`
   padding: 0;
   list-style: none;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin: 40px;
 `
 const ItemStyle = styled.li`
   display: inline-block;
