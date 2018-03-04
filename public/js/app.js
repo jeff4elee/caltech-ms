@@ -4018,16 +4018,24 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = sendExampleAction;
-/* harmony export (immutable) */ __webpack_exports__["a"] = resetStore;
+/* harmony export (immutable) */ __webpack_exports__["a"] = changeUrl;
+/* harmony export (immutable) */ __webpack_exports__["c"] = sendExampleAction;
+/* harmony export (immutable) */ __webpack_exports__["b"] = resetStore;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
+function changeUrl(url) {
+    return {
+        type: 'CHANGE_URL',
+        payload: url
+    };
+}
+
 function sendExampleAction() {
     return {
         type: 'EXAMPLE_ACTION',
-        payload: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get("/api/example")
+        payload: 'axios.get("/api/example")'
     };
 }
 
@@ -59042,10 +59050,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         sendExampleAction: function sendExampleAction() {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["b" /* sendExampleAction */])());
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["c" /* sendExampleAction */])());
         },
         resetStore: function resetStore() {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["a" /* resetStore */])());
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["b" /* resetStore */])());
         }
     };
 }
@@ -59162,6 +59170,9 @@ var Home = function (_Component) {
         key: 'render',
         value: function render() {
 
+            var url = this.props.url;
+            console.log(url);
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -59172,7 +59183,7 @@ var Home = function (_Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__dropdown_menu__["a" /* default */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__upload_button__["a" /* default */], null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__video_player__["a" /* default */], null)
+                url !== undefined && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__video_player__["a" /* default */], { url: this.props.url })
             );
         }
     }]);
@@ -59181,7 +59192,9 @@ var Home = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 function mapStateToProps(state) {
-    return {};
+    return {
+        url: state.example.url
+    };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -60952,6 +60965,8 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__history__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_exampleActions__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_redux__ = __webpack_require__(18);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n'], ['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n']);
@@ -60963,6 +60978,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
 
 
 
@@ -60985,9 +61002,6 @@ var UploadButton = function (_React$Component) {
         return _this;
     }
 
-    // highlight-range{4}
-
-
     _createClass(UploadButton, [{
         key: 'handleSubmit',
         value: function handleSubmit(event) {
@@ -61006,6 +61020,7 @@ var UploadButton = function (_React$Component) {
                 config: config
             }).then(function (res) {
                 console.log(res);
+                this.props.changeUrl(res.url);
             }).catch(function (err) {
                 console.log(err);
             });
@@ -61057,7 +61072,22 @@ var UploadButton = function (_React$Component) {
     return UploadButton;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (UploadButton);
+function mapStateToProps(state) {
+    return {
+        example: state.example
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        changeUrl: function changeUrl(url) {
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_exampleActions__["a" /* changeUrl */])(url));
+        }
+    };
+}
+
+//connect allows you to reference the store
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_6_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(UploadButton));
 
 /***/ }),
 /* 159 */
@@ -61776,6 +61806,7 @@ function reducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
         byId: {},
         allIds: [],
+        url: null,
         fetching: false,
         fetched: false,
         error: null
@@ -61807,6 +61838,16 @@ function reducer() {
         case "EXAMPLE_ACTION_REJECTED":
             {
                 return _extends({}, state, { fetching: false, fetched: false });
+            }
+        case "EXAMPLE_ACTION_REJECTED":
+            {
+                return _extends({}, state, { fetching: false, fetched: false });
+            }
+        case "CHANGE_URL":
+            {
+                return _extends({}, state, {
+                    url: action.payload.data
+                });
             }
         case "STORE::RESET":
             {
@@ -63780,7 +63821,6 @@ var VideoPlayer = function (_React$Component) {
     _classCallCheck(this, VideoPlayer);
 
     return _possibleConstructorReturn(this, (VideoPlayer.__proto__ || Object.getPrototypeOf(VideoPlayer)).call(this, props));
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   _createClass(VideoPlayer, [{
@@ -63790,7 +63830,7 @@ var VideoPlayer = function (_React$Component) {
         CompStyle,
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_player___default.a, {
-          url: 'http://18.144.27.216/video/One_Does_Not_Simply_Gank_Xpecial.mp4',
+          url: this.props.url,
           className: 'react-player',
           playing: true,
           controls: true,

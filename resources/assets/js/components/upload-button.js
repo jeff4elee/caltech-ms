@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import history from '../history';
 import axios from "axios";
+import {changeUrl} from "../actions/exampleActions"
+import {connect} from 'react-redux';
 
 const CompStyle = styled.div`
   position: relative;
@@ -14,13 +16,12 @@ const CompStyle = styled.div`
   overflow: hidden;
 `
 
-export default class UploadButton extends React.Component {
+class UploadButton extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // highlight-range{4}
   handleSubmit(event) {
     event.preventDefault();
     alert(
@@ -39,7 +40,8 @@ export default class UploadButton extends React.Component {
         config: config
     })
     .then(function(res) {
-        console.log(res)
+        console.log(res);
+        this.props.changeUrl(res.url);
     })
     .catch(function(err) {
         console.log(err)
@@ -63,7 +65,6 @@ export default class UploadButton extends React.Component {
         <CompStyle>
             <form onSubmit={this.handleSubmit}>
 
-                {/* highlight-range{1-6} */}
             <div className="inputDiv">
                 <input type="file" id="file" className="inputfile" ref={ input => {
                   this.fileInput = input;
@@ -78,3 +79,18 @@ export default class UploadButton extends React.Component {
         );
     }
 }
+
+function mapStateToProps(state){
+    return {
+        example: state.example
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        changeUrl: (url) => dispatch(changeUrl(url)),
+    }
+}
+
+//connect allows you to reference the store
+export default connect(mapStateToProps, mapDispatchToProps)(UploadButton);

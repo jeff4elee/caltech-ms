@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPlayer from 'react-player'
+import Audio from 'react-audioplayer';
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ export default class VideoPlayer extends React.Component {
         return (
             <CompStyle>
                 <ReactPlayer
-                  url= {this.props.url}
+                  url='http://18.144.27.216/video/One_Does_Not_Simply_Gank_Xpecial.mp4'
                   className='react-player'
                   playing
                   controls

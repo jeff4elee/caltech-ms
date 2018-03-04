@@ -20,6 +20,9 @@ class Home extends Component {
 
     render(){
 
+        const url = this.props.url;
+        console.log(url);
+        
         return (
             <div>
 
@@ -29,7 +32,7 @@ class Home extends Component {
 
               <UploadButton></UploadButton>
 
-              <VideoPlayer></VideoPlayer>
+              {url !== undefined && <VideoPlayer url={this.props.url} ></VideoPlayer>}
             </div>
         )
     }
@@ -37,6 +40,7 @@ class Home extends Component {
 
 function mapStateToProps(state){
     return {
+        url: state.example.url
     }
 }
 
