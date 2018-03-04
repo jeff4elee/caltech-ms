@@ -61021,7 +61021,7 @@ var Home = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__toggle_options__["a" /* default */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__upload_button__["a" /* default */], null),
                 url !== undefined && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__video_player__["a" /* default */], { url: this.props.url }),
-                url !== undefined && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                url !== undefined && this.props.categoryKey && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     TitleStyle,
                     null,
                     'Key Points'
@@ -61036,6 +61036,7 @@ var Home = function (_Component) {
 
 function mapStateToProps(state) {
     return {
+        categoryKey: state.example.categoryKey,
         url: state.example.url,
         timestamps: state.example.timestamps
     };

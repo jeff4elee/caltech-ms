@@ -53,7 +53,7 @@ class Home extends Component {
               <UploadButton/>
 
               {url !== undefined && <VideoPlayer url={this.props.url}/>}
-              {url !== undefined && <TitleStyle>Key Points</TitleStyle>}
+              {url !== undefined && this.props.categoryKey && <TitleStyle>Key Points</TitleStyle>}
 
               {annotations}
 
@@ -64,6 +64,7 @@ class Home extends Component {
 
 function mapStateToProps(state){
     return {
+        categoryKey: state.example.categoryKey,
         url: state.example.url,
         timestamps: state.example.timestamps
     }
