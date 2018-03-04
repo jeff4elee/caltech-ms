@@ -61026,9 +61026,7 @@ var Home = function (_Component) {
                     null,
                     'Key Points'
                 ),
-                annotations,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__timestamp__["a" /* default */], { timestamp: '12:15', phrase: 'asd', link: 'google.com' }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__timestamp__["a" /* default */], { timestamp: '1', phrase: 'asdffdaasdfasdfasdfasdfasdf', link: 'google.com' })
+                annotations
             );
         }
     }]);
@@ -62866,7 +62864,8 @@ var UploadButton = function (_React$Component) {
             formData.append(key, imageFile);
 
             var self = this;
-            var url = 'http://52.53.158.244/video/upload';
+            // var url = 'http://52.53.158.244/video/upload'
+            var url = 'http://127.0.0.1:5000/video/upload';
 
             console.log("Sending Request...");
             __WEBPACK_IMPORTED_MODULE_4_axios___default()({
@@ -64684,8 +64683,8 @@ function renderPreloadPlayers(url, config) {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 20px;\n'], ['\n  position: relative;\n  margin: 20px;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n'], ['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  display: inline-block;\n  font-size: 16px;\n'], ['\n  display: inline-block;\n  font-size: 16px;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  padding: 0;\n  padding-left: 30%;\n  list-style: none;\n  justify-content: space-evenly;\n'], ['\n  display: flex;\n  padding: 0;\n  padding-left: 30%;\n  list-style: none;\n  justify-content: space-evenly;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  display: flex;\n  flex: 1 1 0;\n  display: inline-block;\n  font-size: 20px;\n'], ['\n  display: flex;\n  flex: 1 1 0;\n  display: inline-block;\n  font-size: 20px;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\n'], ['\n\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64706,53 +64705,70 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 var CompStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject);
+
 var ListStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].ul(_templateObject2);
+
 var ItemStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].li(_templateObject3);
+
 var TimeStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject4);
+
 var LinkStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].a(_templateObject4);
 
+function str_pad_left(string, pad, length) {
+    return (new Array(length + 1).join(pad) + string).slice(-length);
+}
+
 var TimeStamp = function (_React$Component) {
-  _inherits(TimeStamp, _React$Component);
+    _inherits(TimeStamp, _React$Component);
 
-  function TimeStamp(props) {
-    _classCallCheck(this, TimeStamp);
+    function TimeStamp(props) {
+        _classCallCheck(this, TimeStamp);
 
-    return _possibleConstructorReturn(this, (TimeStamp.__proto__ || Object.getPrototypeOf(TimeStamp)).call(this, props));
-  }
-
-  _createClass(TimeStamp, [{
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        CompStyle,
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          ListStyle,
-          null,
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            ItemStyle,
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              TimeStyle,
-              null,
-              this.props.timestamp
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            ItemStyle,
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              LinkStyle,
-              { href: this.props.link },
-              this.props.phrase
-            )
-          )
-        )
-      );
+        return _possibleConstructorReturn(this, (TimeStamp.__proto__ || Object.getPrototypeOf(TimeStamp)).call(this, props));
     }
-  }]);
 
-  return TimeStamp;
+    _createClass(TimeStamp, [{
+        key: 'render',
+        value: function render() {
+
+            var seconds = this.props.timestamp;
+
+            var minutes = Math.floor(seconds / 60);
+
+            seconds = seconds - minutes * 60;
+
+            var finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                CompStyle,
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    ListStyle,
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        ItemStyle,
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            TimeStyle,
+                            null,
+                            finalTime
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        ItemStyle,
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            LinkStyle,
+                            { href: this.props.link },
+                            this.props.phrase
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return TimeStamp;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (TimeStamp);

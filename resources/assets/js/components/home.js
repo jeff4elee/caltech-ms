@@ -48,17 +48,14 @@ class Home extends Component {
               <TitleStyle>ZeroIn</TitleStyle>
               <DescStyle>We filter out the noise so you don't have to.</DescStyle>
 
-              <ToggleOptions></ToggleOptions>
+              <ToggleOptions/>
 
-              <UploadButton></UploadButton>
+              <UploadButton/>
 
-              {url !== undefined && <VideoPlayer url={this.props.url} ></VideoPlayer>}
+              {url !== undefined && <VideoPlayer url={this.props.url}/>}
               {url !== undefined && <TitleStyle>Key Points</TitleStyle>}
 
               {annotations}
-
-              <TimeStamp timestamp="12:15" phrase="asd" link="google.com"/>
-              <TimeStamp timestamp="1" phrase="asdffdaasdfasdfasdfasdfasdf" link="google.com"/>
 
             </div>
         )
