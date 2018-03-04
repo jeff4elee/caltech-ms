@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import history from '../history';
 import axios from "axios";
-import {changeUrl} from "../actions/exampleActions"
+import {changeUrl, annotateVideo} from "../actions/exampleActions"
 import {connect} from 'react-redux';
 
 const CompStyle = styled.div`
@@ -58,6 +58,7 @@ class UploadButton extends React.Component {
 
         var self = this;
         var url = 'http://52.53.158.244/video/upload'
+
         // var url = 'http://127.0.0.1:5000/video/upload'
 
         console.log("Sending Request...");
@@ -69,7 +70,11 @@ class UploadButton extends React.Component {
         })
             .then(function (res) {
                 console.log(res);
-                self.props.changeUrl(res.data.url);
+                if(key === "classroom"){
+                  self.props.annotateVideo(res.data)
+                } else {
+                  self.props.changeUrl(res.data.url);
+                }
             })
             .catch(function (err) {
                 console.log(err)
@@ -107,7 +112,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        changeUrl: (url) => dispatch(changeUrl(url))
+        changeUrl: (url) => dispatch(changeUrl(url)),
+        annotateVideo: (timestamps) => dispatch(annotateVideo(timestamps))
     }
 }
 

@@ -3,6 +3,7 @@ export default function reducer(state={
     allIds: [],
     url: null,
     categoryKey: null,
+    timestamps: [],
     fetching: false,
     fetched: false,
     error: null
@@ -40,6 +41,12 @@ export default function reducer(state={
         case "CHANGE_URL": {
             return {...state,
                 url: action.payload
+            }
+        }
+        case "ANNOTATE": {
+            return {...state,
+                timestamps: action.payload.results,
+                url: action.payload.url
             }
         }
         case "CHANGE_KEY": {

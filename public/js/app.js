@@ -4210,10 +4210,11 @@ var createTransitionManager = function createTransitionManager() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = changeUrl;
-/* harmony export (immutable) */ __webpack_exports__["a"] = changeKey;
-/* harmony export (immutable) */ __webpack_exports__["d"] = sendExampleAction;
-/* harmony export (immutable) */ __webpack_exports__["c"] = resetStore;
+/* harmony export (immutable) */ __webpack_exports__["c"] = changeUrl;
+/* harmony export (immutable) */ __webpack_exports__["a"] = annotateVideo;
+/* harmony export (immutable) */ __webpack_exports__["b"] = changeKey;
+/* harmony export (immutable) */ __webpack_exports__["e"] = sendExampleAction;
+/* harmony export (immutable) */ __webpack_exports__["d"] = resetStore;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
@@ -4225,6 +4226,12 @@ function changeUrl(url) {
     };
 }
 
+function annotateVideo(timestamps) {
+    return {
+        type: 'ANNOTATE',
+        payload: timestamps
+    };
+}
 function changeKey(categoryKey) {
     return {
         type: 'CHANGE_KEY',
@@ -60856,10 +60863,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         sendExampleAction: function sendExampleAction() {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["d" /* sendExampleAction */])());
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["e" /* sendExampleAction */])());
         },
         resetStore: function resetStore() {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["c" /* resetStore */])());
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["d" /* resetStore */])());
         }
     };
 }
@@ -60986,6 +60993,16 @@ var Home = function (_Component) {
             var url = this.props.url;
             console.log(url);
 
+            var timestamps = this.props.timestamps;
+
+            var annotations = [];
+
+            if (timestamps !== undefined) {
+                annotations = timestamps.map(function (ts) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__timestamp__["a" /* default */], { timestamp: ts['begin'], phrase: ts['topic'], link: ts['link'], id: ts['begin'] });
+                });
+            }
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -61000,9 +61017,9 @@ var Home = function (_Component) {
                 url !== undefined && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     TitleStyle,
                     null,
-                    'Important points'
+                    'Key Points'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__timestamp__["a" /* default */], { timestamp: '12:15', link: 'google.com' })
+                annotations
             );
         }
     }]);
@@ -61012,7 +61029,8 @@ var Home = function (_Component) {
 
 function mapStateToProps(state) {
     return {
-        url: state.example.url
+        url: state.example.url,
+        timestamps: state.example.timestamps
     };
 }
 
@@ -62840,6 +62858,7 @@ var UploadButton = function (_React$Component) {
 
             var self = this;
             var url = 'http://52.53.158.244/video/upload';
+
             // var url = 'http://127.0.0.1:5000/video/upload'
 
             console.log("Sending Request...");
@@ -62850,7 +62869,11 @@ var UploadButton = function (_React$Component) {
                 config: config
             }).then(function (res) {
                 console.log(res);
-                self.props.changeUrl(res.data.url);
+                if (key === "classroom") {
+                    self.props.annotateVideo(res.data);
+                } else {
+                    self.props.changeUrl(res.data.url);
+                }
             }).catch(function (err) {
                 console.log(err);
             });
@@ -62901,7 +62924,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         changeUrl: function changeUrl(url) {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_exampleActions__["b" /* changeUrl */])(url));
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_exampleActions__["c" /* changeUrl */])(url));
+        },
+        annotateVideo: function annotateVideo(timestamps) {
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_exampleActions__["a" /* annotateVideo */])(timestamps));
         }
     };
 }
@@ -63135,11 +63161,6 @@ var ToggleOptions = function (_React$Component) {
                         ItemStyle,
                         { style: { backgroundColor: bgColor2 }, onClick: this.but2 },
                         'Classroom'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        ItemStyle,
-                        { style: { backgroundColor: bgColor3 }, onClick: this.but3 },
-                        'Speech'
                     )
                 )
             );
@@ -63158,7 +63179,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         changeKey: function changeKey(categoryKey) {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_exampleActions__["a" /* changeKey */])(categoryKey));
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_exampleActions__["b" /* changeKey */])(categoryKey));
         }
     };
 }
@@ -63179,8 +63200,8 @@ function mapDispatchToProps(dispatch) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__history__ = __webpack_require__(10);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    text-align: center;\n    position: relative;\n    padding-top: 56.25%\n'], ['\n    text-align: center;\n    position: relative;\n    padding-top: 56.25%\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  font-size: 25px;\n'], ['\n  font-size: 25px;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n    position: relative;\n'], ['\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n    position: relative;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  font-size: 25px;\n  padding-bottom: 10px;\n'], ['\n  font-size: 25px;\n  padding-bottom: 10px;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -65358,6 +65379,7 @@ function reducer() {
         allIds: [],
         url: null,
         categoryKey: null,
+        timestamps: [],
         fetching: false,
         fetched: false,
         error: null
@@ -65398,6 +65420,13 @@ function reducer() {
             {
                 return _extends({}, state, {
                     url: action.payload
+                });
+            }
+        case "ANNOTATE":
+            {
+                return _extends({}, state, {
+                    timestamps: action.payload.results,
+                    url: action.payload.url
                 });
             }
         case "CHANGE_KEY":
@@ -65457,7 +65486,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 20px;\n'], ['\n  position: relative;\n  margin: 20px;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n'], ['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  display: inline-block;\n  text-align: center;\n'], ['\n  display: inline-block;\n  text-align: center;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  display: inline-block;\n  text-align: center;\n  font-size: 16px;\n'], ['\n  display: inline-block;\n  text-align: center;\n  font-size: 16px;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\n'], ['\n\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65516,7 +65545,7 @@ var TimeStamp = function (_React$Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               LinkStyle,
               { href: this.props.link },
-              this.props.link
+              this.props.phrase
             )
           )
         )

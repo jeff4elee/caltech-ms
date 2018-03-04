@@ -7,6 +7,12 @@ export function changeUrl(url){
     }
 }
 
+export function annotateVideo(timestamps){
+    return {
+        type: 'ANNOTATE',
+        payload: timestamps
+    }
+}
 export function changeKey(categoryKey){
     return {
         type: 'CHANGE_KEY',

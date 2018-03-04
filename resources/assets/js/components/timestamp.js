@@ -21,6 +21,7 @@ const ListStyle = styled.ul`
 const ItemStyle = styled.li`
   display: inline-block;
   text-align: center;
+  font-size: 16px;
 `
 const TimeStyle = styled.div`
 
@@ -34,14 +35,13 @@ export default class TimeStamp extends React.Component {
       super(props);
   }
 
-
     render() {
         return (
 
         <CompStyle>
           <ListStyle>
             <ItemStyle><TimeStyle>{this.props.timestamp}</TimeStyle></ItemStyle>
-            <ItemStyle><LinkStyle href={this.props.link}>{this.props.link}</LinkStyle></ItemStyle>
+            <ItemStyle><LinkStyle href={this.props.link}>{this.props.phrase}</LinkStyle></ItemStyle>
           </ListStyle>
         </CompStyle>
         );
