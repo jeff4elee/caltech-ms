@@ -7,6 +7,7 @@ import DropdownMenu from './dropdown-menu'
 import ToggleOptions from './toggle-options'
 import VideoPlayer from './video-player'
 import AudioPlayer from './audio-player'
+import TimeStamp from './timestamp'
 
 const TitleStyle = styled.h1`
   text-align: center;
@@ -34,9 +35,10 @@ class Home extends Component {
 
               <UploadButton></UploadButton>
 
-              {url !== null && <VideoPlayer url={this.props.url} ></VideoPlayer>}
+              {url !== undefined && <VideoPlayer url={this.props.url} ></VideoPlayer>}
 
 
+              <TimeStamp timestamp="12:15" link="google.com"></TimeStamp>
             </div>
         )
     }

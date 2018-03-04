@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 
 const CompStyle = styled.div`
   position: relative;
+  margin: 20px;
 `
 const ListStyle = styled.ul`
   display: flex;
@@ -18,7 +19,8 @@ const ListStyle = styled.ul`
   justify-content: space-evenly;
 `
 const ItemStyle = styled.li`
-
+  display: inline-block;
+  text-align: center;
 `
 const TimeStyle = styled.div`
 
@@ -30,7 +32,6 @@ const LinkStyle = styled.a`
 export default class TimeStamp extends React.Component {
   constructor(props) {
       super(props);
-      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
@@ -39,8 +40,8 @@ export default class TimeStamp extends React.Component {
 
         <CompStyle>
           <ListStyle>
-            <ItemStyle><TimeStyle></TimeStyle></ItemStyle>
-            <ItemStyle><LinkStyle></LinkStyle></ItemStyle>
+            <ItemStyle><TimeStyle>{this.props.timestamp}</TimeStyle></ItemStyle>
+            <ItemStyle><LinkStyle href={this.props.link}>{this.props.link}</LinkStyle></ItemStyle>
           </ListStyle>
         </CompStyle>
         );
