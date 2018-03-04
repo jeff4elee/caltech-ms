@@ -61015,7 +61015,7 @@ var UploadButton = function (_React$Component) {
 
             __WEBPACK_IMPORTED_MODULE_4_axios___default()({
                 method: 'post',
-                url: 'http://18.144.27.216/video/upload',
+                url: 'http://52.53.158.244/video/upload',
                 data: formData,
                 config: config
             }).then(function (res) {
