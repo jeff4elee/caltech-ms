@@ -6,6 +6,7 @@ import UploadButton from './upload-button'
 import DropdownMenu from './dropdown-menu'
 import ToggleOptions from './toggle-options'
 import VideoPlayer from './video-player'
+import AudioPlayer from './audio-player'
 
 const TitleStyle = styled.h1`
   text-align: center;
@@ -23,7 +24,7 @@ class Home extends Component {
 
         const url = this.props.url;
         console.log(url);
-        
+
         return (
             <div>
 
@@ -33,7 +34,8 @@ class Home extends Component {
 
               <UploadButton></UploadButton>
 
-              {url !== undefined && <VideoPlayer url={this.props.url} ></VideoPlayer>}
+              {url !== null && <VideoPlayer url={this.props.url} ></VideoPlayer>}
+              
             </div>
         )
     }
