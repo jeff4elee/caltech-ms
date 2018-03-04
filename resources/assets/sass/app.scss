@@ -7,3 +7,44 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+.react-player {
+  position: relative;
+  top: 0;
+  left: 25vw;
+}
+
+.inputfile {
+	display: none;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputDiv {
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 50px;
+    width: 160px;
+    background-color: white;
+    border: solid;
+    border-color: gray;
+
+}
+
+.inputfile + label {
+		height: inherit;
+		width: inherit;
+    cursor: pointer; /* "hand" cursor */
+}
+
+label {
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

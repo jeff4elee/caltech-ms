@@ -1,9 +1,29 @@
 import axios from "axios";
 
+export function changeUrl(url){
+    return {
+        type: 'CHANGE_URL',
+        payload: url
+    }
+}
+
+export function annotateVideo(timestamps){
+    return {
+        type: 'ANNOTATE',
+        payload: timestamps
+    }
+}
+export function changeKey(categoryKey){
+    return {
+        type: 'CHANGE_KEY',
+        payload: categoryKey
+    }
+}
+
 export function sendExampleAction(){
     return {
         type: 'EXAMPLE_ACTION',
-        payload: axios.get("/api/example")
+        payload: 'axios.get("/api/example")'
     }
 }
 
