@@ -39,7 +39,7 @@ class UploadButton extends React.Component {
     console.log("sending request");
     axios({
         method: 'post',
-        url: 'http://127.0.0.1:5000/video/upload',
+        url: 'http://52.53.158.244/video/upload',
         data: formData,
         config: config
     })

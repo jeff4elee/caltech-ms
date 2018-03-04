@@ -32,10 +32,9 @@ class Home extends Component {
               <DropdownMenu></DropdownMenu>
 
               <UploadButton></UploadButton>
-              
-              <AudioPlayer></AudioPlayer>
 
               {url !== null && <VideoPlayer url={this.props.url} ></VideoPlayer>}
+              
             </div>
         )
     }
