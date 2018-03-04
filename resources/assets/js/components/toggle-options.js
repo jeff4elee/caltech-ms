@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import history from '../history';
+import {changeKey} from "../actions/exampleActions"
+import {connect} from 'react-redux';
 
 const CompStyle = styled.div`
   margin-bottom: 100px;
@@ -30,7 +32,7 @@ const ItemStyle = styled.li`
   cursor: pointer; /* "hand" cursor */
 `
 
-export default class ToggleOptions extends React.Component {
+class ToggleOptions extends React.Component {
     constructor(props) {
         super(props);
 
@@ -60,21 +62,24 @@ export default class ToggleOptions extends React.Component {
     }
 
     but1() {
-      this.setState({color1: true})
-      this.setState({color2: false})
-      this.setState({color3: false})
+        this.setState({color1: true})
+        this.setState({color2: false})
+        this.setState({color3: false})
+        this.props.changeKey('entertainment')
     }
 
     but2() {
-      this.setState({color1: false})
-      this.setState({color2: true})
-      this.setState({color3: false})
+        this.setState({color1: false})
+        this.setState({color2: true})
+        this.setState({color3: false})
+        this.props.changeKey('classroom')
     }
 
     but3() {
-      this.setState({color1: false})
-      this.setState({color2: false})
-      this.setState({color3: true})
+        this.setState({color1: false})
+        this.setState({color2: false})
+        this.setState({color3: true})
+        this.props.changeKey('speech')
     }
 
 
@@ -100,3 +105,17 @@ export default class ToggleOptions extends React.Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        example: state.example
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        changeKey: (categoryKey) => dispatch(changeKey(categoryKey))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToggleOptions);

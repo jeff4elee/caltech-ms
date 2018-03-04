@@ -4210,9 +4210,10 @@ var createTransitionManager = function createTransitionManager() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = changeUrl;
-/* harmony export (immutable) */ __webpack_exports__["c"] = sendExampleAction;
-/* harmony export (immutable) */ __webpack_exports__["b"] = resetStore;
+/* harmony export (immutable) */ __webpack_exports__["b"] = changeUrl;
+/* harmony export (immutable) */ __webpack_exports__["a"] = changeKey;
+/* harmony export (immutable) */ __webpack_exports__["d"] = sendExampleAction;
+/* harmony export (immutable) */ __webpack_exports__["c"] = resetStore;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
@@ -4221,6 +4222,13 @@ function changeUrl(url) {
     return {
         type: 'CHANGE_URL',
         payload: url
+    };
+}
+
+function changeKey(categoryKey) {
+    return {
+        type: 'CHANGE_KEY',
+        payload: categoryKey
     };
 }
 
@@ -60848,10 +60856,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         sendExampleAction: function sendExampleAction() {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["c" /* sendExampleAction */])());
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["d" /* sendExampleAction */])());
         },
         resetStore: function resetStore() {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["b" /* resetStore */])());
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__["c" /* resetStore */])());
         }
     };
 }
@@ -62825,14 +62833,19 @@ var UploadButton = function (_React$Component) {
             var config = { headers: { "Content-Type": "multipart/form-data" } };
             var formData = new FormData();
             var imageFile = this.fileInput.files[0];
-            formData.append("file", imageFile);
+
+            var key = this.props.example.categoryKey;
+            console.log(key);
+            formData.append(key, imageFile);
 
             var self = this;
+            // var url = 'http://52.53.158.244/video/upload'
+            var url = 'http://127.0.0.1:5000/video/upload';
 
-            console.log("sending request");
+            console.log("Sending Request...");
             __WEBPACK_IMPORTED_MODULE_4_axios___default()({
                 method: 'post',
-                url: 'http://52.53.158.244/video/upload',
+                url: url,
                 data: formData,
                 config: config
             }).then(function (res) {
@@ -62841,16 +62854,6 @@ var UploadButton = function (_React$Component) {
             }).catch(function (err) {
                 console.log(err);
             });
-
-            // axios.interceptors.request.use(request => {
-            //   console.log('Starting Request', request)
-            //   return request
-            // })
-            //
-            // axios.interceptors.response.use(response => {
-            //   console.log('Response:', response)
-            //   return response
-            // })
         }
     }, {
         key: 'render',
@@ -62898,7 +62901,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         changeUrl: function changeUrl(url) {
-            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_exampleActions__["a" /* changeUrl */])(url));
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_exampleActions__["b" /* changeUrl */])(url));
         }
     };
 }
@@ -63016,6 +63019,8 @@ var DropdownMenu = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__history__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_exampleActions__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_redux__ = __webpack_require__(17);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n  margin-bottom: 100px;\n'], ['\n  margin-bottom: 100px;\n']),
@@ -63037,109 +63042,128 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 
+
+
 var CompStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject);
 var TitleStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].h1(_templateObject2);
 var ListStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].ul(_templateObject3);
 var ItemStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].li(_templateObject4);
 
 var ToggleOptions = function (_React$Component) {
-  _inherits(ToggleOptions, _React$Component);
+    _inherits(ToggleOptions, _React$Component);
 
-  function ToggleOptions(props) {
-    _classCallCheck(this, ToggleOptions);
+    function ToggleOptions(props) {
+        _classCallCheck(this, ToggleOptions);
 
-    var _this = _possibleConstructorReturn(this, (ToggleOptions.__proto__ || Object.getPrototypeOf(ToggleOptions)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (ToggleOptions.__proto__ || Object.getPrototypeOf(ToggleOptions)).call(this, props));
 
-    _this.state = {
-      color1: true
-    };
-    _this.state = {
-      color2: true
-    };
-    _this.state = {
-      color3: true
-    };
+        _this.state = {
+            color1: true
+        };
+        _this.state = {
+            color2: true
+        };
+        _this.state = {
+            color3: true
+        };
 
-    _this.toggle = _this.toggle.bind(_this);
-    _this.but1 = _this.but1.bind(_this);
-    _this.but2 = _this.but2.bind(_this);
-    _this.but3 = _this.but3.bind(_this);
-    _this.state = {
-      isOpen: false
-    };
-    return _this;
-  }
-
-  _createClass(ToggleOptions, [{
-    key: 'toggle',
-    value: function toggle() {
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
+        _this.toggle = _this.toggle.bind(_this);
+        _this.but1 = _this.but1.bind(_this);
+        _this.but2 = _this.but2.bind(_this);
+        _this.but3 = _this.but3.bind(_this);
+        _this.state = {
+            isOpen: false
+        };
+        return _this;
     }
-  }, {
-    key: 'but1',
-    value: function but1() {
-      this.setState({ color1: true });
-      this.setState({ color2: false });
-      this.setState({ color3: false });
-    }
-  }, {
-    key: 'but2',
-    value: function but2() {
-      this.setState({ color1: false });
-      this.setState({ color2: true });
-      this.setState({ color3: false });
-    }
-  }, {
-    key: 'but3',
-    value: function but3() {
-      this.setState({ color1: false });
-      this.setState({ color2: false });
-      this.setState({ color3: true });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var bgColor1 = this.state.color1 ? "#DCDCDC" : "white";
-      var bgColor2 = this.state.color2 ? "#DCDCDC" : "white";
-      var bgColor3 = this.state.color3 ? "#DCDCDC" : "white";
 
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        CompStyle,
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          TitleStyle,
-          null,
-          'Type of video/audio'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          ListStyle,
-          null,
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            ItemStyle,
-            { style: { backgroundColor: bgColor1 }, onClick: this.but1 },
-            'Entertainment'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            ItemStyle,
-            { style: { backgroundColor: bgColor2 }, onClick: this.but2 },
-            'Classroom'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            ItemStyle,
-            { style: { backgroundColor: bgColor3 }, onClick: this.but3 },
-            'Speech'
-          )
-        )
-      );
-    }
-  }]);
+    _createClass(ToggleOptions, [{
+        key: 'toggle',
+        value: function toggle() {
+            this.setState({
+                isOpen: !this.state.isOpen
+            });
+        }
+    }, {
+        key: 'but1',
+        value: function but1() {
+            this.setState({ color1: true });
+            this.setState({ color2: false });
+            this.setState({ color3: false });
+            this.props.changeKey('entertainment');
+        }
+    }, {
+        key: 'but2',
+        value: function but2() {
+            this.setState({ color1: false });
+            this.setState({ color2: true });
+            this.setState({ color3: false });
+            this.props.changeKey('classroom');
+        }
+    }, {
+        key: 'but3',
+        value: function but3() {
+            this.setState({ color1: false });
+            this.setState({ color2: false });
+            this.setState({ color3: true });
+            this.props.changeKey('speech');
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var bgColor1 = this.state.color1 ? "#DCDCDC" : "white";
+            var bgColor2 = this.state.color2 ? "#DCDCDC" : "white";
+            var bgColor3 = this.state.color3 ? "#DCDCDC" : "white";
 
-  return ToggleOptions;
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                CompStyle,
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    TitleStyle,
+                    null,
+                    'Type of video/audio'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    ListStyle,
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        ItemStyle,
+                        { style: { backgroundColor: bgColor1 }, onClick: this.but1 },
+                        'Entertainment'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        ItemStyle,
+                        { style: { backgroundColor: bgColor2 }, onClick: this.but2 },
+                        'Classroom'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        ItemStyle,
+                        { style: { backgroundColor: bgColor3 }, onClick: this.but3 },
+                        'Speech'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ToggleOptions;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (ToggleOptions);
+function mapStateToProps(state) {
+    return {
+        example: state.example
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        changeKey: function changeKey(categoryKey) {
+            return dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_exampleActions__["a" /* changeKey */])(categoryKey));
+        }
+    };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(ToggleOptions));
 
 /***/ }),
 /* 170 */
@@ -65333,6 +65357,7 @@ function reducer() {
         byId: {},
         allIds: [],
         url: null,
+        categoryKey: null,
         fetching: false,
         fetched: false,
         error: null
@@ -65373,6 +65398,12 @@ function reducer() {
             {
                 return _extends({}, state, {
                     url: action.payload
+                });
+            }
+        case "CHANGE_KEY":
+            {
+                return _extends({}, state, {
+                    categoryKey: action.payload
                 });
             }
         case "STORE::RESET":
