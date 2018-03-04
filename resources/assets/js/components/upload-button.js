@@ -19,12 +19,12 @@ const ButtonStyle = styled.button`
   background-color: white;
   border: solid;
   border-color: gray;
-  border-bottom-width: 1px;
 `
 
 const InputStyle = styled.input`
   display: block;
   position: absolute;
+  height: inherit;
   top: 0;
   right: 0;
   opacity: 0;
@@ -60,18 +60,13 @@ export default class UploadButton extends React.Component {
       window.alert(x.size/1000);
     }
 
-
     render() {
         return (
             <CompStyle>
-
               <ButtonStyle>
                 UPLOAD VIDEO
-                <form onsubmit={this.fileSave}>
                   <InputStyle type="file" id="myFile"/>
-                </form>
               </ButtonStyle>
-
             </CompStyle>
         );
     }

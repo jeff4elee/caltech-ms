@@ -59125,6 +59125,7 @@ var Navbar = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_exampleActions__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__upload_button__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dropdown_menu__ = __webpack_require__(190);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n  text-align: center;\n  margin: 50px;\n  font-size: 200%;\n'], ['\n  text-align: center;\n  margin: 50px;\n  font-size: 200%;\n']);
@@ -59136,6 +59137,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
 
 
@@ -59166,6 +59168,7 @@ var Home = function (_Component) {
                     null,
                     'Welcome to our aumomatic highlight reel maker thingy!'
                 ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__dropdown_menu__["a" /* default */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__upload_button__["a" /* default */], null)
             );
         }
@@ -60947,8 +60950,8 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n'], ['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  height: 80px;\n  width: 160px;\n\n  font-size: 120%;\n\n  background-color: white;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n'], ['\n  height: 80px;\n  width: 160px;\n\n  font-size: 120%;\n\n  background-color: white;\n  border: solid;\n  border-color: gray;\n  border-bottom-width: 1px;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  display: block;\n  position: absolute;\n  top: 0;\n  right: 0;\n  opacity: 0;\n  font-size: 100px;\n  filter: alpha(opacity=0);\n  cursor: pointer;\n'], ['\n  display: block;\n  position: absolute;\n  top: 0;\n  right: 0;\n  opacity: 0;\n  font-size: 100px;\n  filter: alpha(opacity=0);\n  cursor: pointer;\n']);
+    _templateObject2 = _taggedTemplateLiteral(['\n  height: 80px;\n  width: 160px;\n\n  font-size: 120%;\n\n  background-color: white;\n  border: solid;\n  border-color: gray;\n'], ['\n  height: 80px;\n  width: 160px;\n\n  font-size: 120%;\n\n  background-color: white;\n  border: solid;\n  border-color: gray;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  display: block;\n  position: absolute;\n  height: inherit;\n  top: 0;\n  right: 0;\n  opacity: 0;\n  font-size: 100px;\n  filter: alpha(opacity=0);\n  cursor: pointer;\n'], ['\n  display: block;\n  position: absolute;\n  height: inherit;\n  top: 0;\n  right: 0;\n  opacity: 0;\n  font-size: 100px;\n  filter: alpha(opacity=0);\n  cursor: pointer;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -61015,11 +61018,7 @@ var UploadButton = function (_React$Component) {
                     ButtonStyle,
                     null,
                     'UPLOAD VIDEO',
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'form',
-                        { onsubmit: this.fileSave },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(InputStyle, { type: 'file', id: 'myFile' })
-                    )
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(InputStyle, { type: 'file', id: 'myFile' })
                 )
             );
         }
@@ -61805,6 +61804,116 @@ function reducer() {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__history__ = __webpack_require__(45);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  display: flex;\n  justify-content: center;\n'], ['\n  display: flex;\n  justify-content: center;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  display: none;\n  position: absolute;\n  background-color: #f9f9f9;\n  min-width: 160px;\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n  padding: 12px 16px;\n  z-index: 1;\n'], ['\n  display: none;\n  position: absolute;\n  background-color: #f9f9f9;\n  min-width: 160px;\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n  padding: 12px 16px;\n  z-index: 1;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  position: relative;\n  display: inline-block;\n  &:hover ', ' {\n    display: block;\n  }\n'], ['\n  position: relative;\n  display: inline-block;\n  &:hover ', ' {\n    display: block;\n  }\n']);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+var CompStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject);
+
+var DropdownContent = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject2);
+var DropdownStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject3, DropdownContent);
+
+var DropdownMenu = function (_React$Component) {
+    _inherits(DropdownMenu, _React$Component);
+
+    function DropdownMenu(props) {
+        _classCallCheck(this, DropdownMenu);
+
+        var _this = _possibleConstructorReturn(this, (DropdownMenu.__proto__ || Object.getPrototypeOf(DropdownMenu)).call(this, props));
+
+        _this.toggle = _this.toggle.bind(_this);
+        _this.state = {
+            isOpen: false
+        };
+        return _this;
+    }
+
+    _createClass(DropdownMenu, [{
+        key: 'toggle',
+        value: function toggle() {
+            this.setState({
+                isOpen: !this.state.isOpen
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                CompStyle,
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    DropdownStyle,
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'span',
+                        null,
+                        'Mouse over me'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        DropdownContent,
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            'Entertainment'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            'Speeches'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            'Classroom'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return DropdownMenu;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (DropdownMenu);
 
 /***/ })
 /******/ ]);

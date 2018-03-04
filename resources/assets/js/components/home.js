@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
 import UploadButton from './upload-button'
+import DropdownMenu from './dropdown-menu'
 
 
 const TitleStyle = styled.h1`
@@ -23,6 +24,8 @@ class Home extends Component {
             <div>
 
               <TitleStyle>Welcome to our aumomatic highlight reel maker thingy!</TitleStyle>
+
+              <DropdownMenu></DropdownMenu>
 
               <UploadButton></UploadButton>
             </div>
