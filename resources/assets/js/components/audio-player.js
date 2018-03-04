@@ -1,32 +1,52 @@
 import React from 'react';
-import Audio from 'react-audioplayer';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
-import history from '../history';
+import { PlayButton, Timer } from 'react-soundplayer/components';
 
 const CompStyle = styled.div`
 
     position: relative;
-    padding-top: 56.25%
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 `
-export default class VideoPlayer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+// it's just an alias for `withSoundCloudAudio` but makes code clearer
+import { withCustomAudio } from 'react-soundplayer/addons';
 
-    render() {
-        return (
-            <CompStyle>
-                <ReactPlayer
-                  url='http://18.144.27.216/video/One_Does_Not_Simply_Gank_Xpecial.mp4'
-                  className='react-player'
-                  playing
-                  controls
-                  width='50%'
-                  height='50%' />
-            </CompStyle>
-            )
-          }
+// audio source
+const streamUrl = 'https://s3-eu-west-1.amazonaws.com/react-soundplayer-examples/ksmtk-reborn-edit.mp3';
+
+// some track meta information
+const trackTitle = 'Insert the Title Here!';
+
+const AWSSoundPlayer = withCustomAudio(props => {
+
+const { trackTitle } = props;
+  return (
+    <div>
+      <PlayButton {...this.props} />
+      <h2>{trackTitle}</h2>
+      <Timer {...this.props} />
+    </div>
+  );
+});
+
+export default class AudioPlayer extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+  render() {
+    return (
+<CompStyle>
+      <AWSSoundPlayer
+        streamUrl={streamUrl}
+        trackTitle={trackTitle}
+        preloadType="auto"
+        autoplay />
+</CompStyle>
+    )
+  }
 }
