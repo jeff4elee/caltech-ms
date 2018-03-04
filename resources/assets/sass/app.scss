@@ -8,6 +8,12 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 25vw;
+}
+
 .inputfile {
 	display: none;
 	opacity: 0;
@@ -30,7 +36,6 @@
     border-color: gray;
 
 }
-
 
 .inputfile + label {
 		height: inherit;

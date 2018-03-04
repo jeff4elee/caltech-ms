@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
 import UploadButton from './upload-button'
 import DropdownMenu from './dropdown-menu'
-
+import VideoPlayer from './video-player'
 
 const TitleStyle = styled.h1`
   text-align: center;
@@ -28,6 +28,8 @@ class Home extends Component {
               <DropdownMenu></DropdownMenu>
 
               <UploadButton></UploadButton>
+
+              <VideoPlayer></VideoPlayer>
             </div>
         )
     }
