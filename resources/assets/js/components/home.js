@@ -32,7 +32,7 @@ class Home extends Component {
 
               <UploadButton></UploadButton>
 
-              {url !== undefined && <VideoPlayer url={this.props.url} ></VideoPlayer>}
+              {url !== null && <VideoPlayer url={this.props.url} ></VideoPlayer>}
             </div>
         )
     }

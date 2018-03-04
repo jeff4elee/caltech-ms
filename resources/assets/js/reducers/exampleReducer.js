@@ -38,7 +38,7 @@ export default function reducer(state={
         }
         case "CHANGE_URL": {
             return {...state,
-                url: action.payload.data
+                url: action.payload
             }
         }
         case "STORE::RESET": {

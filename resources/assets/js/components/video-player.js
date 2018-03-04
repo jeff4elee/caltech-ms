@@ -11,7 +11,7 @@ const CompStyle = styled.div`
     position: relative;
     padding-top: 56.25%
 `
-export default class VideoPlayer extends React.Component {
+class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -30,3 +30,5 @@ export default class VideoPlayer extends React.Component {
             )
           }
 }
+
+export default VideoPlayer;

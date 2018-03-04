@@ -18,11 +18,12 @@ const CompStyle = styled.div`
 
 class UploadButton extends React.Component {
   constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      super(props);
+      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
+
     event.preventDefault();
     alert(
       `Selected file - ${this.fileInput.files[0].name}`
@@ -33,15 +34,18 @@ class UploadButton extends React.Component {
     var imageFile = this.fileInput.files[0];
     formData.append("file", imageFile);
 
+    var self = this;
+
+    console.log("sending request");
     axios({
         method: 'post',
-        url: 'http://18.144.27.216/video/upload',
+        url: 'http://127.0.0.1:5000/video/upload',
         data: formData,
         config: config
     })
     .then(function(res) {
         console.log(res);
-        this.props.changeUrl(res.url);
+        self.props.changeUrl(res.data.url);
     })
     .catch(function(err) {
         console.log(err)
