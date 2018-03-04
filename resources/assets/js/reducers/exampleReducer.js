@@ -2,7 +2,7 @@ export default function reducer(state={
     byId: {},
     allIds: [],
     url: null,
-    categoryKey: null,
+    categoryKey: "classroom",
     timestamps: [],
     fetching: false,
     fetched: false,

@@ -60954,7 +60954,8 @@ var Navbar = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__timestamp__ = __webpack_require__(182);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  text-align: center;\n  margin: 50px;\n  font-size: 200%;\n'], ['\n  text-align: center;\n  margin: 50px;\n  font-size: 200%;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  text-align: center;\n  margin: 10px;\n  font-size: 50px;\n'], ['\n  text-align: center;\n  margin: 10px;\n  font-size: 50px;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  text-align: center;\n  margin-bottom: 50px;\n  font-size: 150%;\n  border-bottom: solid;\n  border-width: thin;\n  padding-bottom: 30px;\n'], ['\n  text-align: center;\n  margin-bottom: 50px;\n  font-size: 150%;\n  border-bottom: solid;\n  border-width: thin;\n  padding-bottom: 30px;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -60976,6 +60977,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 var TitleStyle = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].h1(_templateObject);
+var DescStyle = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].h2(_templateObject2);
 
 var Home = function (_Component) {
     _inherits(Home, _Component);
@@ -61009,7 +61011,12 @@ var Home = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     TitleStyle,
                     null,
-                    'Welcome to our aumomatic highlight reel maker thingy!'
+                    'ZeroIn'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    DescStyle,
+                    null,
+                    'We filter out the noise so you don\'t have to.'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__toggle_options__["a" /* default */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__upload_button__["a" /* default */], null),
@@ -61019,7 +61026,9 @@ var Home = function (_Component) {
                     null,
                     'Key Points'
                 ),
-                annotations
+                annotations,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__timestamp__["a" /* default */], { timestamp: '12:15', phrase: 'asd', link: 'google.com' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__timestamp__["a" /* default */], { timestamp: '1', phrase: 'asdffdaasdfasdfasdfasdfasdf', link: 'google.com' })
             );
         }
     }]);
@@ -63145,7 +63154,7 @@ var ToggleOptions = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     TitleStyle,
                     null,
-                    'Type of video/audio'
+                    'What\'s your focus?'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     ListStyle,
@@ -64676,7 +64685,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 20px;\n'], ['\n  position: relative;\n  margin: 20px;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n'], ['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  display: inline-block;\n  text-align: center;\n  font-size: 16px;\n'], ['\n  display: inline-block;\n  text-align: center;\n  font-size: 16px;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  display: inline-block;\n  font-size: 16px;\n'], ['\n  display: inline-block;\n  font-size: 16px;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\n'], ['\n\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65466,7 +65475,7 @@ function reducer() {
         byId: {},
         allIds: [],
         url: null,
-        categoryKey: null,
+        categoryKey: "classroom",
         timestamps: [],
         fetching: false,
         fetched: false,
