@@ -26,6 +26,13 @@ const ButStyle = styled.button`
     background-color: white;
     border: solid;
     border-color: gray;
+    transition-duration: 0.4s;
+
+    &:hover {
+      background-color: #ffb366;
+      color: white;
+    }
+
 `
 
 class UploadButton extends React.Component {
