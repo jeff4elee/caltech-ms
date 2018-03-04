@@ -8350,3 +8350,32 @@ button.close {
   }
 }
 
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  height: 80px;
+  width: 160px;
+  font-size: 120%;
+  background-color: white;
+  border: solid;
+  border-color: gray;
+  border-bottom-width: 1px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: red;
+}
+
+.inputfile + label {
+  cursor: pointer;
+  /* "hand" cursor */
+}
+
