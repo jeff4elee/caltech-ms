@@ -8,66 +8,43 @@ const CompStyle = styled.div`
   position: relative;
   text-align: center;
   margin: 20px;
-`
-
-const ButtonStyle = styled.button`
-  height: 80px;
-  width: 160px;
-
-  font-size: 120%;
-
-  background-color: white;
-  border: solid;
-  border-color: gray;
-`
-
-const InputStyle = styled.input`
-  display: block;
-  position: absolute;
-  height: inherit;
-  top: 0;
-  right: 0;
-  opacity: 0;
-  font-size: 100px;
-  filter: alpha(opacity=0);
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 `
 
 export default class UploadButton extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-        this.toggle = this.toggle.bind(this);
-        this.filePrompt = this.filePrompt.bind(this);
-        this.fileSave = this.fileSave.bind(this);
-        this.state = {
-            isOpen: false
-        };
-    }
-
-    toggle() {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
-    }
-
-    filePrompt() {
-      //var x = document.getElementById("myFile");
-    }
-
-    fileSave() {
-      var x = document.getElementById("myFile");
-      window.alert(x.size/1000);
-    }
+  // highlight-range{4}
+  handleSubmit(event) {
+    event.preventDefault();
+    alert(
+      `Selected file - ${this.fileInput.files[0].name}`
+    );
+  }
 
     render() {
         return (
-            <CompStyle>
-              <ButtonStyle>
-                UPLOAD VIDEO
-                  <InputStyle type="file" id="myFile"/>
-              </ButtonStyle>
-            </CompStyle>
+
+        <CompStyle>
+            <form onSubmit={this.handleSubmit}>
+
+                {/* highlight-range{1-6} */}
+            <div className="inputDiv">
+                <input type="file" id="file" className="inputfile" ref={ input => {
+                  this.fileInput = input;
+                }} />
+
+            <label htmlFor="file">UPLOAD VIDEO</label>
+            </div>
+              <br/>
+              <button type="submit">Submit</button>
+            </form>
+        </CompStyle>
         );
     }
 }
