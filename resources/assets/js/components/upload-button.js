@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import history from '../history';
 import axios from "axios";
 import {changeUrl} from "../actions/exampleActions"
@@ -36,74 +36,69 @@ const ButStyle = styled.button`
 `
 
 class UploadButton extends React.Component {
-  constructor(props) {
-      super(props);
-      this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-  handleSubmit(event) {
+    handleSubmit(event) {
 
-    event.preventDefault();
-    alert(
-      `Selected file - ${this.fileInput.files[0].name}`
-    );
+        event.preventDefault();
+        alert(
+            `Selected file - ${this.fileInput.files[0].name}`
+        );
 
-    var config = { headers: { "Content-Type": "multipart/form-data" }};
-    var formData = new FormData();
-    var imageFile = this.fileInput.files[0];
-    formData.append("file", imageFile);
+        var config = {headers: {"Content-Type": "multipart/form-data"}};
+        var formData = new FormData();
+        var imageFile = this.fileInput.files[0];
 
-    var self = this;
+        var key = this.props.example.categoryKey;
+        console.log(key);
+        formData.append(key, imageFile);
 
-    console.log("sending request");
-    axios({
-        method: 'post',
-        url: 'http://52.53.158.244/video/upload',
-        data: formData,
-        config: config
-    })
-    .then(function(res) {
-        console.log(res);
-        self.props.changeUrl(res.data.url);
-    })
-    .catch(function(err) {
-        console.log(err)
-    });
+        var self = this;
+        // var url = 'http://52.53.158.244/video/upload'
+        var url = 'http://127.0.0.1:5000/video/upload'
 
-    // axios.interceptors.request.use(request => {
-    //   console.log('Starting Request', request)
-    //   return request
-    // })
-    //
-    // axios.interceptors.response.use(response => {
-    //   console.log('Response:', response)
-    //   return response
-    // })
+        console.log("Sending Request...");
+        axios({
+            method: 'post',
+            url: url,
+            data: formData,
+            config: config
+        })
+            .then(function (res) {
+                console.log(res);
+                self.props.changeUrl(res.data.url);
+            })
+            .catch(function (err) {
+                console.log(err)
+            });
 
-  }
+    }
 
     render() {
         return (
 
-        <CompStyle>
-            <form onSubmit={this.handleSubmit}>
+            <CompStyle>
+                <form onSubmit={this.handleSubmit}>
 
-            <div className="inputDiv">
-                <input type="file" id="file" className="inputfile" ref={ input => {
-                  this.fileInput = input;
-                }} />
-                <label htmlFor="file">UPLOAD VIDEO</label>
-            </div>
+                    <div className="inputDiv">
+                        <input type="file" id="file" className="inputfile" ref={ input => {
+                            this.fileInput = input;
+                        }}/>
+                        <label htmlFor="file">UPLOAD VIDEO</label>
+                    </div>
 
-              <br/>
-              <ButStyle type="submit">Submit</ButStyle>
-            </form>
-        </CompStyle>
+                    <br/>
+                    <ButStyle type="submit">Submit</ButStyle>
+                </form>
+            </CompStyle>
         );
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
         example: state.example
     }
@@ -111,7 +106,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch) {
     return {
-        changeUrl: (url) => dispatch(changeUrl(url)),
+        changeUrl: (url) => dispatch(changeUrl(url))
     }
 }
 
