@@ -62859,8 +62859,6 @@ var UploadButton = function (_React$Component) {
             var self = this;
             var url = 'http://52.53.158.244/video/upload';
 
-            // var url = 'http://127.0.0.1:5000/video/upload'
-
             console.log("Sending Request...");
             __WEBPACK_IMPORTED_MODULE_4_axios___default()({
                 method: 'post',
@@ -63154,13 +63152,13 @@ var ToggleOptions = function (_React$Component) {
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         ItemStyle,
-                        { style: { backgroundColor: bgColor1 }, onClick: this.but1 },
-                        'Entertainment'
+                        { style: { backgroundColor: bgColor2 }, onClick: this.but2 },
+                        'Lecture'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         ItemStyle,
-                        { style: { backgroundColor: bgColor2 }, onClick: this.but2 },
-                        'Classroom'
+                        { style: { backgroundColor: bgColor1 }, onClick: this.but1 },
+                        'Study Break'
                     )
                 )
             );
@@ -64677,7 +64675,7 @@ function renderPreloadPlayers(url, config) {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 20px;\n'], ['\n  position: relative;\n  margin: 20px;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: center;\n  margin: 40px;\n'], ['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: center;\n  margin: 40px;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n'], ['\n  display: flex;\n  padding: 0;\n  list-style: none;\n  align-items: center;\n  justify-content: space-evenly;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n  display: inline-block;\n  text-align: center;\n  font-size: 16px;\n'], ['\n  display: inline-block;\n  text-align: center;\n  font-size: 16px;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\n'], ['\n\n']);
 
