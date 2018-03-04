@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
-import UploadButton from './upload-button';
-import DropdownMenu from './dropdown-menu';
-import ToggleOptions from './toggle-options';
-
+import UploadButton from './upload-button'
+import DropdownMenu from './dropdown-menu'
+import VideoPlayer from './video-player'
 
 const TitleStyle = styled.h1`
   text-align: center;
@@ -26,9 +25,11 @@ class Home extends Component {
 
               <TitleStyle>Welcome to our aumomatic highlight reel maker thingy!</TitleStyle>
 
-              <ToggleOptions></ToggleOptions>
+              <DropdownMenu></DropdownMenu>
 
               <UploadButton></UploadButton>
+
+              <VideoPlayer></VideoPlayer>
             </div>
         )
     }

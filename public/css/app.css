@@ -8350,6 +8350,12 @@ button.close {
   }
 }
 
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 25vw;
+}
+
 .inputfile {
   display: none;
   opacity: 0;
