@@ -15,6 +15,18 @@ const CompStyle = styled.div`
   justify-content: center;
   overflow: hidden;
 `
+const ButStyle = styled.button`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 50px;
+    width: 160px;
+    font-size: 120%;
+    background-color: white;
+    border: solid;
+    border-color: gray;
+`
 
 class UploadButton extends React.Component {
   constructor(props) {
@@ -73,7 +85,7 @@ class UploadButton extends React.Component {
             </div>
 
               <br/>
-              <button type="submit">Submit</button>
+              <ButStyle type="submit">Submit</ButStyle>
             </form>
         </CompStyle>
         );

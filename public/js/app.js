@@ -62769,7 +62769,8 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_redux__ = __webpack_require__(17);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n'], ['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n'], ['\n  position: relative;\n  text-align: center;\n  margin: 20px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    display:flex;\n    align-items: center;\n    justify-content: center;\n\n    height: 50px;\n    width: 160px;\n    font-size: 120%;\n    background-color: white;\n    border: solid;\n    border-color: gray;\n'], ['\n    display:flex;\n    align-items: center;\n    justify-content: center;\n\n    height: 50px;\n    width: 160px;\n    font-size: 120%;\n    background-color: white;\n    border: solid;\n    border-color: gray;\n']);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -62789,6 +62790,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 var CompStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject);
+var ButStyle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].button(_templateObject2);
 
 var UploadButton = function (_React$Component) {
     _inherits(UploadButton, _React$Component);
@@ -62860,7 +62862,7 @@ var UploadButton = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'button',
+                        ButStyle,
                         { type: 'submit' },
                         'Submit'
                     )
@@ -63094,7 +63096,7 @@ var ToggleOptions = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     TitleStyle,
                     null,
-                    'Type of video'
+                    'Type of video/audio'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     ListStyle,

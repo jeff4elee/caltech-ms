@@ -85,7 +85,7 @@ export default class ToggleOptions extends React.Component {
         return (
             <CompStyle>
 
-              <TitleStyle>Type of video</TitleStyle>
+              <TitleStyle>Type of video/audio</TitleStyle>
 
               <ListStyle>
 
