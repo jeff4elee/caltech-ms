@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import history from '../history';
 
 const CompStyle = styled.div`
+    text-align: center;
     position: relative;
     padding-top: 56.25%
 `
@@ -22,7 +23,6 @@ class VideoPlayer extends React.Component {
     render() {
         return (
             <CompStyle>
-
                 <TitleStyle>Your new condensed video</TitleStyle>
                 <ReactPlayer
                   url= {this.props.url}

@@ -83,12 +83,13 @@ class UploadButton extends React.Component {
             <CompStyle>
                 <form onSubmit={this.handleSubmit}>
 
-                    <div className="inputDiv">
-                        <input type="file" id="file" className="inputfile" ref={ input => {
-                            this.fileInput = input;
-                        }}/>
-                        <label htmlFor="file">UPLOAD VIDEO</label>
-                    </div>
+            <div className="inputDiv">
+                <input type="file" id="file" className="inputfile" ref={ input => {
+                  this.fileInput = input;
+                }} />
+                <label htmlFor="file">Upload File</label>
+            </div>
+
 
                     <br/>
                     <ButStyle type="submit">Submit</ButStyle>
