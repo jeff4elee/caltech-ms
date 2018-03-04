@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import styled from 'styled-components';
 import {sendExampleAction, resetStore} from '../actions/exampleActions';
+import UploadButton from './upload-button'
+import DropdownMenu from './dropdown-menu'
+import ToggleOptions from './toggle-options'
+import VideoPlayer from './video-player'
+import AudioPlayer from './audio-player'
+
+const TitleStyle = styled.h1`
+  text-align: center;
+  margin: 50px;
+  font-size: 200%;
+`
 
 class Home extends Component {
     constructor(props) {
@@ -10,13 +22,21 @@ class Home extends Component {
 
     render(){
 
-        const example = this.props.example;
-        const exampleList = example.allIds.map(id => <div key={id}> Dispatched: {example.byId[id]} </div>);
+        const url = this.props.url;
+        console.log(url);
 
         return (
             <div>
-                <button onClick={() => this.dispatchExampleAction()}>CLICK</button>
-                {exampleList}
+
+              <TitleStyle>Welcome to our aumomatic highlight reel maker thingy!</TitleStyle>
+
+              <ToggleOptions></ToggleOptions>
+
+              <UploadButton></UploadButton>
+
+              {url !== null && <VideoPlayer url={this.props.url} ></VideoPlayer>}
+
+
             </div>
         )
     }
@@ -24,6 +44,7 @@ class Home extends Component {
 
 function mapStateToProps(state){
     return {
+        url: state.example.url
     }
 }
 

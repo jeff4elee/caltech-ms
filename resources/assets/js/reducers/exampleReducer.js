@@ -1,6 +1,7 @@
 export default function reducer(state={
     byId: {},
     allIds: [],
+    url: null,
     fetching: false,
     fetched: false,
     error: null
@@ -31,6 +32,14 @@ export default function reducer(state={
         }
         case "EXAMPLE_ACTION_REJECTED": {
             return {...state, fetching: false, fetched: false}
+        }
+        case "EXAMPLE_ACTION_REJECTED": {
+            return {...state, fetching: false, fetched: false}
+        }
+        case "CHANGE_URL": {
+            return {...state,
+                url: action.payload
+            }
         }
         case "STORE::RESET": {
 
