@@ -91,7 +91,7 @@ class ToggleOptions extends React.Component {
         return (
             <CompStyle>
 
-              <TitleStyle>Type of video/audio</TitleStyle>
+              <TitleStyle>What's your focus?</TitleStyle>
 
               <ListStyle>
 

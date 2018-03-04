@@ -11,8 +11,16 @@ import TimeStamp from './timestamp'
 
 const TitleStyle = styled.h1`
   text-align: center;
-  margin: 50px;
-  font-size: 200%;
+  margin: 10px;
+  font-size: 50px;
+`
+const DescStyle = styled.h2`
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 150%;
+  border-bottom: solid;
+  border-width: thin;
+  padding-bottom: 30px;
 `
 
 class Home extends Component {
@@ -37,7 +45,8 @@ class Home extends Component {
         return (
             <div>
 
-              <TitleStyle>Welcome to our aumomatic highlight reel maker thingy!</TitleStyle>
+              <TitleStyle>ZeroIn</TitleStyle>
+              <DescStyle>We filter out the noise so you don't have to.</DescStyle>
 
               <ToggleOptions></ToggleOptions>
 
@@ -47,6 +56,9 @@ class Home extends Component {
               {url !== undefined && <TitleStyle>Key Points</TitleStyle>}
 
               {annotations}
+
+              <TimeStamp timestamp="12:15" phrase="asd" link="google.com"/>
+              <TimeStamp timestamp="1" phrase="asdffdaasdfasdfasdfasdfasdf" link="google.com"/>
 
             </div>
         )

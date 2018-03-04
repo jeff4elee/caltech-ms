@@ -20,7 +20,6 @@ const ListStyle = styled.ul`
 `
 const ItemStyle = styled.li`
   display: inline-block;
-  text-align: center;
   font-size: 16px;
 `
 const TimeStyle = styled.div`
