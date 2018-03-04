@@ -15,6 +15,25 @@ const CompStyle = styled.div`
   justify-content: center;
   overflow: hidden;
 `
+const ButStyle = styled.button`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 50px;
+    width: 160px;
+    font-size: 120%;
+    background-color: white;
+    border: solid;
+    border-color: gray;
+    transition-duration: 0.4s;
+
+    &:hover {
+      background-color: #ffb366;
+      color: white;
+    }
+
+`
 
 class UploadButton extends React.Component {
   constructor(props) {
@@ -39,7 +58,7 @@ class UploadButton extends React.Component {
     console.log("sending request");
     axios({
         method: 'post',
-        url: 'http://127.0.0.1:5000/video/upload',
+        url: 'http://52.53.158.244/video/upload',
         data: formData,
         config: config
     })
@@ -77,7 +96,7 @@ class UploadButton extends React.Component {
             </div>
 
               <br/>
-              <button type="submit">Submit</button>
+              <ButStyle type="submit">Submit</ButStyle>
             </form>
         </CompStyle>
         );
